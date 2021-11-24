@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+{% block content %}
+    {% csrf_token %}
+<h1>index</h1>
+<body>
+{% for set in stock_data %}
+    time -> {{ set.last_trade_time }}
+    {{ set.name }}: {{ set.price }}
+    <br>
+{% endfor %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="{% static 'js/fetch_stocks.js' %}"></script>
+
+</body>
+{% endblock %}
