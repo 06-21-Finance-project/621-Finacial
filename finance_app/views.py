@@ -12,7 +12,10 @@ API_KEY = env('API_TOKEN')
 
 
 def index(request):
-    context = fetch_stocks(request)
+    context = {}
+    context.update(fetch_news(request))
+    context.update(fetch_stocks(request))
+    context.update(fetch_crypto(request))
     return render(request, 'index.html', context)
 
 
@@ -26,29 +29,25 @@ def fetch_news(request):
                               'apiKey=e4a078da3fc844f9a8cd5690e7c4a0f2').json
     business_news = requests.get('https://newsapi.org/v2/everything?q=business&'
                                  f'from={today}&sortBy=publishedAt&apiKey=e4a078da3fc844f9a8cd5690e7c4a0f2').json
-
-    return render(request, {'bit_coin_news': bit_coin_news, 'stock_news': stock_news, 'business_news': business_news})
+    return {'bit_coin_news': bit_coin_news, 'stock_news': stock_news, 'business_news': business_news}
 
 
 def fetch_stocks(request):
     url = 'https://api.stockdata.org/v1/data/quote'
     stocks_symbol = ["IQV,ENB,FB", "AMZN,BKNG,TSLA", "AAPL,GOOGL,MSFT", "MA"]
-    context = {}
     stock_details = []
     for i in range(4):
         querystring = {"api_token": API_KEY, "symbols": stocks_symbol[i]}
         response = requests.request("GET", url, params=querystring)
         response = response.json()
         stock_details = stock_details + response["data"]
-    context["stock_data"] = stock_details
-    return context
+    return {"stock_data": stock_details}
 
 
-def all_crypto(request):
+def fetch_crypto(request):
     crypto = []
-
     response = requests.get('https://api.coincap.io/v2/assets')
+    response = response.json()
     for i in range(10):
-        crypto = crypto + response.json()["data"]
-
-    return render(request, 'index.html', {'allCrypto': crypto})
+        crypto = crypto + response["data"]
+    return {'allCrypto': crypto}
