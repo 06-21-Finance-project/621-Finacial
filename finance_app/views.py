@@ -14,7 +14,7 @@ API_KEY = env('API_TOKEN')
 def index(request):
     context = {}
     context.update(fetch_news(request))
-    context.update(fetch_stocks(request))
+    # context.update(fetch_stocks(request))
     context.update(fetch_crypto(request))
     return render(request, 'index.html', context)
 
@@ -46,8 +46,11 @@ def fetch_stocks(request):
 
 def fetch_crypto(request):
     crypto = []
+    temp = []
     response = requests.get('https://api.coincap.io/v2/assets')
     response = response.json()
+    temp = temp + response["data"]
+
     for i in range(10):
-        crypto = crypto + response["data"]
+        crypto.append(temp[i])
     return {'allCrypto': crypto}
