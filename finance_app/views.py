@@ -10,7 +10,13 @@ environ.Env.read_env()
 
 API_KEY = env('API_TOKEN')
 
+
 def index(request):
+    context = fetch_stocks(request)
+    return render(request, 'index.html', context)
+
+
+def fetch_news(request):
     input = datetime.now()
     today = input.strftime('%Y-%m-%d')
     # while True:
@@ -20,13 +26,9 @@ def index(request):
                               'apiKey=e4a078da3fc844f9a8cd5690e7c4a0f2').json
     business_news = requests.get('https://newsapi.org/v2/everything?q=business&'
                                  f'from={today}&sortBy=publishedAt&apiKey=e4a078da3fc844f9a8cd5690e7c4a0f2').json
-    
-    context = fetch_stocks(request)
-    context['bit_coin_news'] = bit_coin_news
-    context['stock_news'] = stock_news
-    context['business_news'] = business_news
-    context['today'] = today
-    return render(request, 'index.html', context)
+
+    return render(request, {'bit_coin_news': bit_coin_news, 'stock_news': stock_news, 'business_news': business_news})
+
 
 def fetch_stocks(request):
     url = 'https://api.stockdata.org/v1/data/quote'
@@ -40,6 +42,7 @@ def fetch_stocks(request):
         stock_details = stock_details + response["data"]
     context["stock_data"] = stock_details
     return context
+
 
 def all_crypto(request):
     crypto = []

@@ -62,34 +62,34 @@
         <div class="col-md-8">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#bitcoin">Stock</a>
+                    <a class="nav-link active" data-bs-toggle="tab" href="#bitcoin">Crypto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#stock">Crypto</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#stock">Stock</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div id="bitcoin" class="container tab-pane active">
                     <h3>bit coin </h3>
-                  <strong>List of Bitcoin status</strong>
-                  <br>
-                  <br>
+                    <strong>List of Bitcoin status</strong>
+                    <br>
+                    <br>
 
-                  {% for i in allCrypto %}
-                      {{ i.name }} | {{ i.id }} | ({{ i.rank }})
-                      <br>
-                      Price = {{ i.priceUsd }}
-                      <br>
-                      <br>
-                      <br>
-                  {% endfor %}
+                    {% for i in allCrypto %}
+                        {{ i.name }} | {{ i.id }} | ({{ i.rank }})
+                        <br>
+                        Price = {{ i.priceUsd }}
+                        <br>
+                        <br>
+                        <br>
+                    {% endfor %}
                 </div>
                 <div id="stock" class="container tab-pane fade">
                     <h3>stock</h3>
                     {% for set in stock_data %}
-                      time -> {{ set.last_trade_time }}
-                      {{ set.name }}: {{ set.price }}
-                      <br>
+                        time -> {{ set.last_trade_time }}
+                        {{ set.name }}: {{ set.price }}
+                        <br>
                     {% endfor %}
                 </div>
             </div>

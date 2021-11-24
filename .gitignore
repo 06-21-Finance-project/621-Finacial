@@ -93,5 +93,5 @@ ipytho...
 .vscode/
 
 # python environment files
-.env
+Financial/.env
 venv
