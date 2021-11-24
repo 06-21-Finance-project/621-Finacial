@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>News</title>
     <meta charset="utf-8">
@@ -72,9 +71,26 @@
             <div class="tab-content">
                 <div id="bitcoin" class="container tab-pane active">
                     <h3>bit coin </h3>
+                  <strong>List of Bitcoin status</strong>
+                  <br>
+                  <br>
+
+                  {% for i in allCrypto %}
+                      {{ i.name }} | {{ i.id }} | ({{ i.rank }})
+                      <br>
+                      Price = {{ i.priceUsd }}
+                      <br>
+                      <br>
+                      <br>
+                  {% endfor %}
                 </div>
                 <div id="stock" class="container tab-pane fade">
                     <h3>stock</h3>
+                    {% for set in stock_data %}
+                      time -> {{ set.last_trade_time }}
+                      {{ set.name }}: {{ set.price }}
+                      <br>
+                    {% endfor %}
                 </div>
             </div>
         </div>

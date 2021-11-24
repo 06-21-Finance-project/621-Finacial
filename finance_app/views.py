@@ -1,9 +1,14 @@
 from django.http import HttpResponse
-from django.shortcuts import render
 from time import sleep
 from datetime import datetime
+from django.shortcuts import render
 import requests
+import environ
 
+env = environ.Env()
+environ.Env.read_env()
+
+API_KEY = env('API_TOKEN')
 
 def index(request):
     input = datetime.now()
@@ -15,7 +20,32 @@ def index(request):
                               'apiKey=e4a078da3fc844f9a8cd5690e7c4a0f2').json
     business_news = requests.get('https://newsapi.org/v2/everything?q=business&'
                                  f'from={today}&sortBy=publishedAt&apiKey=e4a078da3fc844f9a8cd5690e7c4a0f2').json
+    
+    context = fetch_stocks(request)
+    context['bit_coin_news'] = bit_coin_news
+    context['stock_news'] = stock_news
+    context['business_news'] = business_news
+    context['today'] = today
+    return render(request, 'index.html', context)
 
-    return render(request, 'index.html', {'bit_coin_news': bit_coin_news, 'stock_news': stock_news,
-                                             'business_news': business_news, 'today': today})
-    # sleep()
+def fetch_stocks(request):
+    url = 'https://api.stockdata.org/v1/data/quote'
+    stocks_symbol = ["IQV,ENB,FB", "AMZN,BKNG,TSLA", "AAPL,GOOGL,MSFT", "MA"]
+    context = {}
+    stock_details = []
+    for i in range(4):
+        querystring = {"api_token": API_KEY, "symbols": stocks_symbol[i]}
+        response = requests.request("GET", url, params=querystring)
+        response = response.json()
+        stock_details = stock_details + response["data"]
+    context["stock_data"] = stock_details
+    return context
+
+def all_crypto(request):
+    crypto = []
+
+    response = requests.get('https://api.coincap.io/v2/assets')
+    for i in range(10):
+        crypto = crypto + response.json()["data"]
+
+    return render(request, 'index.html', {'allCrypto': crypto})
