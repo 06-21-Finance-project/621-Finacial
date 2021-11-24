@@ -1,8 +1,16 @@
 <!DOCTYPE html>
+<html lang="en">
 {% load static %}
 {% block content %}
-    {% csrf_token %}
-<h1>index</h1>
+{% csrf_token %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+  
+  
 <body>
 {% for set in stock_data %}
     time -> {{ set.last_trade_time }}
@@ -10,8 +18,18 @@
     <br>
 {% endfor %}
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-<script src="{% static 'js/fetch_stocks.js' %}"></script>
+    <strong>List of Bitcoin status</strong>
+    <br>
+    <br>
 
-</body>
+    {% for i in allCrypto %}
+        {{ i.name }} | {{ i.id }} | ({{ i.rank }})
+        <br>
+        Price = {{ i.priceUsd }}
+        <br>
+        <br>
+        <br>
+    {% endfor %}
+  </body>
 {% endblock %}
+</html>

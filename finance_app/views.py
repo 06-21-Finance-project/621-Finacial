@@ -8,40 +8,10 @@ environ.Env.read_env()
 API_KEY = env('API_TOKEN')
 
 def index(request):
-    context = fetch_news(request)
+    context = fetch_stocks(request)
     return render(request, 'index.html', context)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def fetch_news(request):
+def fetch_stocks(request):
     url = 'https://api.stockdata.org/v1/data/quote'
     stocks_symbol = ["IQV,ENB,FB", "AMZN,BKNG,TSLA", "AAPL,GOOGL,MSFT", "MA"]
     context = {}
@@ -54,4 +24,11 @@ def fetch_news(request):
     context["stock_data"] = stock_details
     return context
 
+def all_crypto(request):
+    crypto = []
 
+    response = requests.get('https://api.coincap.io/v2/assets')
+    for i in range(10):
+        crypto = crypto + response.json()["data"]
+
+    return render(request, 'index.html', {'allCrypto': crypto})
