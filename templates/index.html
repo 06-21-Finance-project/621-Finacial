@@ -35,28 +35,61 @@
             <div class="tab-content">
                 <div id="bitcoin-news" class="container tab-pane active">
                     <h3>bit coin news</h3>
-                    {% for coin_news in bit_coin_news.articles %}
-                        <br>
-                        - title = {{ coin_news.title }}
-{#                        at => {{ coin_news.publishedAt }}#}
-                        <br>
-                    {% endfor %}
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Time</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for coin_news in bit_coin_news.articles %}
+                            <tr>
+                                <td>{{ coin_news.title }}</td>
+                                <td>{{ coin_news.publishedAt }}</td>
+                            </tr>>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
                 </div>
                 <div id="stock-news" class="container tab-pane fade">
                     <h3>stock news</h3>
-                    {% for stock_news in stock_news.articles %}
-                        <br>
-                        - title = {{ stock_news.title }}
-                        <br>
-                    {% endfor %}
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Time</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for stock_news in stocks_news.articles %}
+                            <tr>
+                                <td>{{ stock_news.title }}</td>
+                                <td>{{ stock_news.publishedAt }}</td>
+                            </tr>>
+                        {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
                 <div id="business-news" class="container tab-pane fade">
                     <h3>business news</h3>
-                    {% for news in business_news.articles %}
-                        <br>
-                        - title = {{ news.title }}
-                        <br>
-                    {% endfor %}
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Time</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for news in business_news.articles %}
+                            <tr>
+                                <td>{{ news.title }}</td>
+                                <td>{{ news.publishedAt }}</td>
+                            </tr>>
+                        {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -71,28 +104,51 @@
             </ul>
             <div class="tab-content">
                 <div id="bitcoin" class="container tab-pane active">
-                    <h3>bit coin </h3>
-                    <strong>List of Bitcoin status</strong>
-                    <br>
-                    <br>
+                    <h3>Bitcoin information</h3>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Stock name</th>
+                            <th>Price</th>
+                            <th>Time</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in allCrypto %}
+                            <tr>
+                                <td>{{ i.name }}</td>
+                                <td>{{ i.priceUsd }}</td>
+                                <td>{{ time }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
 
-                    {% for i in allCrypto %}
-                        {{ i.name }} | {{ i.id }} | ({{ i.rank }})
-                        <br>
-                        Price = {{ i.priceUsd }}
-                        time = {{ time }}
-                        <br>
-                        <br>
-                        <br>
-                    {% endfor %}
+
                 </div>
                 <div id="stock" class="container tab-pane fade">
-                    <h3>stock</h3>
-                    {% for set in stock_data %}
-                        time -> {{ set.last_trade_time }}
-                        {{ set.name }}: {{ set.price }}
-                        <br>
-                    {% endfor %}
+                    <h3>Stock information</h3>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Stock name</th>
+                            <th>Price</th>
+                            <th>Time</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for set in stock_data %}
+                            <tr>
+                                <td>{{ set.name }}</td>
+                                <td>{{ set.price }}</td>
+                                <td>{{ set.last_trade_time }}</td>
+                                <br>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+
                 </div>
             </div>
         </div>

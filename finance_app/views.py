@@ -39,7 +39,7 @@ def fetch_news(request):
     # for i in range(10):
     #     business_news = business_news + business_response['data']
 
-    return {'bit_coin_news': crypto_response, 'stock_news': stock_response, 'business_news': business_response, 'today': today}
+    return {'bit_coin_news': crypto_response, 'stocks_news': stock_response, 'business_news': business_response, 'today': today}
 
 
 def fetch_stocks(request):
@@ -55,9 +55,11 @@ def fetch_stocks(request):
 
 
 def fetch_crypto(request):
+    input = datetime.now()
+    time = input.strftime('%H:%M')
     crypto = []
     response = requests.get('https://api.coincap.io/v2/assets')
     response = response.json()
     for i in range(10):
         crypto = crypto + response["data"]
-    return {'allCrypto': crypto}
+    return {'allCrypto': crypto, 'time': time}
