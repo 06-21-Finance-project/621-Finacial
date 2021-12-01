@@ -23,13 +23,23 @@ def fetch_news(request):
     input = datetime.now()
     today = input.strftime('%Y-%m-%d')
     # while True:
-    bit_coin_news = requests.get(f'https://newsapi.org/v2/everything?q=bitcoin&from={today}&sortBy=publishedAt&'
-                                 'apiKey=e4a078da3fc844f9a8cd5690e7c4a0f2').json
-    stock_news = requests.get(f'https://newsapi.org/v2/everything?q=stock&from={today}&sortBy=publishedAt&'
-                              'apiKey=e4a078da3fc844f9a8cd5690e7c4a0f2').json
-    business_news = requests.get('https://newsapi.org/v2/everything?q=business&'
-                                 f'from={today}&sortBy=publishedAt&apiKey=e4a078da3fc844f9a8cd5690e7c4a0f2').json
-    return {'bit_coin_news': bit_coin_news, 'stock_news': stock_news, 'business_news': business_news}
+    crypto_news = []
+    stocks_news = []
+    business_news = []
+    crypto_response = requests.get(f'https://newsapi.org/v2/everything?q=bitcoin&{today}&sortBy=publishedAt&'
+                                 'apiKey=a292184125094d328398eaa6c0a624b1').json
+    stock_response = requests.get(f'https://newsapi.org/v2/everything?q=stock&{today}&sortBy=publishedAt&'
+                              'apiKey=a292184125094d328398eaa6c0a624b1').json
+    business_response = requests.get(f'https://newsapi.org/v2/everything?q=business&{today}&sortBy=publishedAt&'
+                                 'apiKey=a292184125094d328398eaa6c0a624b1').json
+    # for i in range(10):
+    #     crypto_news = crypto_news + crypto_response['data']
+    # for i in range(10):
+    #     stocks_news = stocks_news + stock_response['data']
+    # for i in range(10):
+    #     business_news = business_news + business_response['data']
+
+    return {'bit_coin_news': crypto_response, 'stock_news': stock_response, 'business_news': business_response, 'today': today}
 
 
 def fetch_stocks(request):

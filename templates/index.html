@@ -10,15 +10,15 @@
 <body>
 <div class="container m-5">
     <div class="row">
-        <h3 class="col-md-4">
+        <h3 class="col-md-5">
             What happen around the world today: {{ today }}
         </h3>
-        <h3 class="col-md-8">
+        <h3 class="col-md-7">
             Stock & crypto
         </h3>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#bitcoin-news">Bitcoin News</a>
@@ -38,6 +38,7 @@
                     {% for coin_news in bit_coin_news.articles %}
                         <br>
                         - title = {{ coin_news.title }}
+{#                        at => {{ coin_news.publishedAt }}#}
                         <br>
                     {% endfor %}
                 </div>
@@ -59,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-7">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#bitcoin">Crypto</a>
@@ -79,6 +80,7 @@
                         {{ i.name }} | {{ i.id }} | ({{ i.rank }})
                         <br>
                         Price = {{ i.priceUsd }}
+                        time = {{ time }}
                         <br>
                         <br>
                         <br>
