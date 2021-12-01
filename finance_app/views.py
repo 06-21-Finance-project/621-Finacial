@@ -1,5 +1,3 @@
-from django.http import HttpResponse
-from time import sleep
 from datetime import datetime
 from django.shortcuts import render
 import requests
@@ -9,14 +7,12 @@ env = environ.Env()
 environ.Env.read_env()
 
 stock_api_key = env('STOCK_API_KEY')
-google_sheet_api_key = env('GOOGLESHEET_API_KEY')
-google_sheet_id = env('GOOGLESHEET_ID')
 
 
 def index(request):
     context = {}
     context.update(fetch_news(request))
-    # context.update(fetch_stocks(request))
+    context.update(fetch_stocks(request))
     context.update(fetch_crypto(request))
     return render(request, 'index.html', context)
 
@@ -67,14 +63,5 @@ def fetch_crypto(request):
 
 
 def fetch_primary_data(request):
-    context = {}
-    try:
-        google_url = f'https://sheets.googleapis.com/v4/spreadsheets/{google_sheet_id}/values/Form%20responses%201!A:J'
-        querystring = {"key": google_sheet_api_key}
-        response = requests.request("GET", google_url, params=querystring)
-        response = response.json()
-        context = {'response': response}
-    except:
-        context = {'response': 'Some problems happen during the data fetching'}
-    finally:
-        return render(request, 'primary_data.html', context)
+        return render(request, 'primary_data.html')
+
