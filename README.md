@@ -31,9 +31,8 @@ In this modern-day, people have more interested in cryptocurrency and stock when
 
 <br>
 
-## How to run
 
-# Getting Started
+## Getting Started
 
 In the project directory, you can run:
 
