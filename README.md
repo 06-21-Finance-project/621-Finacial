@@ -66,3 +66,5 @@ You will also see any lint errors in the console.
 
 
 ## License
+
+Distributed under the MIT License. See LICENSE.txt for more information.
