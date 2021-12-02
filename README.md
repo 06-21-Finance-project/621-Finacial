@@ -89,11 +89,11 @@ You will also see any lint errors in the console.
 
 
 ## Team Members
-| Name                     |                  GitHub ID                  |     Role      |    Affiliation   |
-| ------------------------ | :-----------------------------------------: | :-----------: |   :-----------:  |
-| Teeranut Sawanyawat      |     [LevNut](https://github.com/LevNut)     |     Developer |   Software and Knowledge Engineer   |
-| Metaras Charoenseang     |    [metaras](https://github.com/metaras)    |   Developer   |   Software and Knowledge Engineer   |
-| Pattarin Wongwaipanich   |  [pattarinn](https://github.com/pattarinn)  |   Developer   |   Software and Knowledge Engineer   |
+| Name                     |                  GitHub ID                  |     Role      |    Faculty   |   University   |
+| ------------------------ | :-----------------------------------------: | :-----------: |    :-----------:   |   :-----------:   |
+| Teeranut Sawanyawat      |     [LevNut](https://github.com/LevNut)     |     Developer |   Software and Knowledge Engineer   |   Kasetsart University   |
+| Metaras Charoenseang     |    [metaras](https://github.com/metaras)    |   Developer   |   Software and Knowledge Engineer   |   Kasetsart University   |
+| Pattarin Wongwaipanich   |  [pattarinn](https://github.com/pattarinn)  |   Developer   |   Software and Knowledge Engineer   |   Kasetsart University   |
 
 <div align="right"> <b><a href="#top">↥ back to top</a></b> </div>
 
