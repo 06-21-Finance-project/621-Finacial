@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-In this modern-day, people have more interested in cryptocurrency and stock when compared to the past. The fact that they have a significant impact on the way people spend their money due to the risk of an investment that depends on people's decisions and data is terrifying. Moreover, we seek out a few websites that can effectively show the relation between news and the status of cryptocurrencies and stock. So, we came with a solution to solve this issue. Our web page will establish the relationship between the current events and the status of the stock market and cryptocurrencies, including the current investor trend(primary data), to guide the beginner investor on the right track.
+   In this modern-day, people have more interested in cryptocurrency and stock when compared to the past. The fact that they have a significant impact on the way people spend their money due to the risk of an investment that depends on people's decisions and data is terrifying. Moreover, we seek out a few websites that can effectively show the relation between news and the status of cryptocurrencies and stock. So, we came with a solution to solve this issue. Our web page will establish the relationship between the current events and the status of the stock market and cryptocurrencies, including the current investor trend(primary data), to guide the beginner investor on the right track.
 
 <div align="right"> <b><a href="#top">↥ back to top</a></b> </div>
 
