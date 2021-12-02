@@ -71,6 +71,9 @@ You will also see any lint errors in the console.
 * [Primary Data](https://docs.google.com/spreadsheets/d/1yl4KlxzFLZDi_MFgiNc-iB2PT6uAG_pMEYbzb9aimOc/edit?usp=sharing)
 * [Presentation Slide](https://docs.google.com/presentation/d/1bsEGp61wrR63aAOHyj-sWKr4lLTLm0frO6JYfUrbu8w/edit?usp=sharing)
 
+<div align="right"> <b><a href="#top">↥ back to top</a></b> </div>
+
+<br>
 
 ## License
 
