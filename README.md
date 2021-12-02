@@ -21,18 +21,26 @@ In this modern-day, people have more interested in cryptocurrency and stock when
 <br>
 
 ## Required Libraries and tools
-* Python 3.9
 * Django
-* django-environ
-* django_heroku
-* requests
+    * Python 3.9
+    * Django
+    * django-environ
+    * django_heroku
+    * requests
+*  Swagger
+    * connexion[swagger-ui]
+    * werkzeug
+    * swagger-ui-bundle
+    * python_dateutil
+    * setuptools
+    * Flask
 
 <div align="right"> <b><a href="#top">↥ back to top</a></b> </div>
 
 <br>
 
 
-## Getting Started
+## Getting Started (Project Django)
 
 In the project directory, you can run:
 
@@ -53,6 +61,31 @@ You will also see any lint errors in the console.
 
 <br>
 
+## Getting Started (Project Swagger)
+
+
+In the project directory, you can run:
+
+    $ java -jar openapi/openapi-generator-cli-5.3.0.jar generate -i openapi/621-financial-api.yaml -o autogen -g python-flask
+
+To start the autogen (Requirement: openapi-generator-cli-5.3.0.jar), then you can run
+
+    $ pip install -r requirements.txt
+
+For downloading all of the requirement you required for the web page. After that you can run
+
+    $ python app.py
+
+To runs the app in the development mode.\
+Open [http://localhost:8080/finance-api/v1/ui/#/](http://localhost:8080/finance-api/v1/ui/#/) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+
+<div align="right"> <b><a href="#top">↥ back to top</a></b> </div>
+
+<br>
 
 
 ## Team Members
