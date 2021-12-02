@@ -41,6 +41,8 @@
 
 <br>
 
+## Integration Database Schema
+![621-Schemas](https://imgur.com/myDCBFK.png)
 
 ## Getting Started (Project Django)
 
